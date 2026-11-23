@@ -1,0 +1,19 @@
+{
+  "dataset": "nikhilpandey360/chest-xray-masks-and-labels",
+  "dataset_path": "/root/.cache/kagglehub/datasets/nikhilpandey360/chest-xray-masks-and-labels/versions/1",
+  "seed": 42,
+  "target": 0.9,
+  "regularization": 0.02,
+  "variance_target": 0.95,
+  "components": 249,
+  "original_features": 1764,
+  "thresholds": {
+    "HOG": 0.02431193970871041,
+    "HOG + PCA": 0.036642788799016876
+  },
+  "python": "3.13.18 (main, Oct 26 2026, 15:28:15) [GCC 13.3.0]",
+  "numpy": "2.4.6",
+  "pandas": "2.2.3",
+  "pillow": "11.3.0",
+  "sklearn": "1.6.1"
+}
