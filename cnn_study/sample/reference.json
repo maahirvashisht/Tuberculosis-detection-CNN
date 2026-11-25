@@ -1,0 +1,7 @@
+{
+  "case": "MCUCXR_0001",
+  "source_file": "Lung Segmentation/CXR_png/MCUCXR_0001_0.png",
+  "score": 0.5204463005065918,
+  "threshold": 0.2665192186832428,
+  "flagged": true
+}
