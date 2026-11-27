@@ -4,7 +4,6 @@ from PIL import Image, ImageOps
 SIZE = 64
 
 def preprocess(image):
-    # Convert palette/RGB values to luminance; preserve higher-bit grayscale.
     gray = image.convert("F")
     gray = ImageOps.contain(gray, (SIZE, SIZE), method=Image.Resampling.BILINEAR)
     pixels = np.asarray(gray, dtype=np.float32)
