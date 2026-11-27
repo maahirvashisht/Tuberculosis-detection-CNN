@@ -1,4 +1,3 @@
-"""Web demo for the trained full CNN and both independent hospital cohorts."""
 import json
 import warnings
 from pathlib import Path
