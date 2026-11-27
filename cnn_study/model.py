@@ -1,4 +1,4 @@
-"""Small two-layer CNN for 64 x 64 grayscale radiographs."""
+
 import numpy as np
 
 FILTERS = (8, 12)
@@ -15,10 +15,8 @@ def initialize(seed):
 def forward(images, params, dropout=0., rng=None):
     n = len(images)
     a, b = FILTERS
-    # First convolution uses 4 x 4 patches, stride four, with shared weights.
     patches = images.reshape(n,16,4,16,4).transpose(0,1,3,2,4).reshape(-1,16)
     first = np.maximum(0, patches @ params["w1"] + params["b1"]).reshape(n,16,16,a)
-    # Gather overlapping 3 x 3 windows; flattening here is just an implementation of convolution.
     windows = np.stack([first[:,i:i+14,j:j+14,:] for i in range(3) for j in range(3)],axis=3)
     windows = windows.reshape(-1,9*a)
     second = np.maximum(0, windows @ params["w2"] + params["b2"]).reshape(n,14,14,b)
