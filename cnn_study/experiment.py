@@ -1,4 +1,4 @@
-"""Fit both CNNs on the fixed split and evaluate the two frozen checkpoints."""
+
 import argparse
 import csv
 import json
@@ -50,7 +50,6 @@ def performance(y, s, t):
                 spec_low=clo,spec_high=chi,auc=float(np.mean((margins>0)+.5*(margins==0))))
 
 def paired_analysis(y, full, ablated):
-    # The same case is resampled in both variants; delta is full minus ablated.
     rng = np.random.default_rng(42)
     out = []
     for label,name in [(1,"sensitivity"),(0,"specificity")]:
@@ -80,7 +79,6 @@ def main(cache, output):
         raise ValueError("Unexpected cohort sizes.")
     variants = {}
     history = []
-    # Freeze training decisions for BOTH variants before any external prediction.
     for key,rate in [("full",.35),("ablated",0.)]:
         params,hist = train(images[train_ids],y[train_ids],images[val_ids],y[val_ids],rate)
         valid = sigmoid(predict_logits(images[val_ids],params))
